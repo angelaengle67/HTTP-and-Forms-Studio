@@ -4,20 +4,23 @@
 	<meta charset="utf-8">
 	<script>
 	function setSearchEngine(){
-		console.log("hello")
+		let engine = document.querySelector("input[name=engine]:checked").value
+		let form = document.getElementById("searchForm")
+		form.action = actions[engine];
+		//alert(engine)	
 	}
-	let button = document.getElementById("Go");
 	
-			//let selectedButton = document.querySelector("input[name=engine]:checked").value
 			let actions = {
-   "google": "https://www.google.com/",
+   "google": "https://www.google.com/search",
    "duckDuckGo": "https://duckduckgo.com/",
    "bing":"https://www.bing.com/search",
    "ask":"https://www.ask.com/web"
 };
     window.addEventListener("load", function(){
-        let form = document.getElementById("searchForm")
-		form.addEventListener("submit", setSearchEngine)
+        
+		//form.addEventListener("submit", setSearchEngine)
+		let button = document.getElementById("Go");
+		button.addEventListener("click", setSearchEngine);
     });
 	</script>
 </head>
